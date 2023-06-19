@@ -1,1 +1,4 @@
+certifi==2021.10.8
 mentor_match==7.0.1
+pymongo==4.3.3
+python-dotenv==1.0.0
