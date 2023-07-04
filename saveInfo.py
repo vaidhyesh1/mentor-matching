@@ -13,8 +13,8 @@ client = MongoClient(mongo_uri, tlsCAFile=certifi.where())
 db = client[dbName]
 collection = db[collectionName]
 
-mentors = collection.find({"mentor": True})
-mentees = collection.find({"mentor": False})
+mentors = collection.find({"mentor": True, "isAssigned": { "$ne": True}})
+mentees = collection.find({"mentor": False, "isAssigned": { "$ne": True}})
 
 filtered_mentees = [mentee for mentee in mentees if not mentee.get("isAssigned", False)]
 
